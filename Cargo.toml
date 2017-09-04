@@ -3,4 +3,7 @@ name = "rust_by_example"
 version = "0.1.0"
 authors = [" <li.liang>"]
 
+
 [dependencies]
+rustc-serialize = "0.3.19"
+chrono = "0.2.25"
