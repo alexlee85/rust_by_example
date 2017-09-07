@@ -17,8 +17,8 @@ fn start() -> Result<(), Box<Error>> {
     let mut core = Core::new()?;
     let client = Client::new(&core.handle());
 
-    let uri = "http://iotup.backend.mxj360.com/rest/devices/mtool/config?uuid=1234567890".parse()?;
-    let mut req = Request::new(Method::Post, uri);
+    let uri = "http://update.mxj360.com/rest/devices/mtool/config?uuid=1234567890".parse()?;
+    let req = Request::new(Method::Post, uri);
 
     let work = client.request(req).and_then(|res| {
         println!("content: {}", res.status());
