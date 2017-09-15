@@ -1,0 +1,29 @@
+fn skip_prefix<'a, 'b>(line: &'a str, prefix: &'b str) -> &'a str {
+    let x = str::replace(line, prefix, "");
+    println!("{}", x);
+
+    line
+}
+
+
+fn main() {
+    let line = "lang:en=Hello World!";
+    let lang = "en";
+
+    let v;
+    {
+        let p = format!("lang:{}=", lang);
+        v = skip_prefix(line, p.as_str());
+    }
+
+    println!("{}", v);
+
+    let name = "李亮";
+    for b in name.as_bytes() {
+        println!("{}", b);
+    }
+
+    for c in name.chars() {
+        println!("{}", c);
+    }
+}

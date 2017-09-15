@@ -55,6 +55,13 @@ impl Pair {
     }
 }
 
+#[derive(Debug)]
+struct Circle {
+    x: f64,
+    y: f64,
+    radius: f64,
+}
+
 fn main() {
     let rectangle = Rectangle {
         p1: Point::origin(),
@@ -74,7 +81,12 @@ fn main() {
     let pair = Pair(Box::new(1), Box::new(2));
 
     pair.destroy();
+
+    let circle = Circle {
+        x: 0.0,
+        y: 0.0,
+        radius: 10.0,
+    };
+
+    println!("{:?}", circle);
 }
-
-
-
