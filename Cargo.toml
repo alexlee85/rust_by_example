@@ -3,6 +3,9 @@ name = "rust_by_example"
 version = "0.1.0"
 authors = [" <li.liang>"]
 
+[lib]
+name = "mylib"
+path = "src/lib.rs"
 
 [dependencies]
 futures = "0.1"
