@@ -1,3 +1,7 @@
+extern crate bytes;
+
+use bytes::Bytes;
+
 fn skip_prefix<'a, 'b>(line: &'a str, prefix: &'b str) -> &'a str {
     let x = str::replace(line, prefix, "");
     println!("{}", x);
@@ -18,7 +22,7 @@ fn main() {
 
     println!("{}", v);
 
-    let name = "李亮";
+    let name = "中文";
     for b in name.as_bytes() {
         println!("{}", b);
     }
@@ -26,4 +30,8 @@ fn main() {
     for c in name.chars() {
         println!("{}", c);
     }
+
+    let mut a = Bytes::from(&b"nice job"[..]);
+    let b = a.split_to(1);
+    println!("{:?}, {:?}", a, b);
 }
