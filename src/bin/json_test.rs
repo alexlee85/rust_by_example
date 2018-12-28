@@ -9,7 +9,7 @@ extern crate serde_json;
 extern crate serde_derive;
 
 use futures::Stream;
-use hyper::{Client, Request, Method};
+use hyper::{Client};
 use hyper_tls::HttpsConnector;
 use tokio_core::reactor::Core;
 use serde_json::Value;
@@ -61,19 +61,15 @@ fn main() {
 	println!("{:?}", time.elapsed());
 
     let mut core = Core::new().unwrap();
-    let handle = core.handle();
 
-    let connector = HttpsConnector::new(4, &handle).unwrap();
+    let connector = HttpsConnector::new(4).unwrap();
 
-    let client = Client::configure()
-        .connector(connector)
-        .build(&handle);
+    let client = Client::builder().build::<_, hyper::Body>(connector);
 
     let uri = "https://crates.io/api/v1/crates/serde_derive".parse().unwrap();
-    let req: Request = Request::new(Method::Get, uri);
 
-    let response = core.run(client.request(req)).unwrap();
-    let body = core.run(response.body().concat2()).unwrap();
+    let response = core.run(client.get(uri)).unwrap();
+    let body = core.run(response.into_body().concat2()).unwrap();
     let json_str = format!("{}", String::from_utf8_lossy(&body));
 
     let data: Value = serde_json::from_str(json_str.as_str()).unwrap();
