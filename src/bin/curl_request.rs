@@ -1,7 +1,7 @@
 extern crate curl;
 extern crate uuid;
 
-use std::io::{stdin, stdout, Write};
+use std::io::{stdin};
 use std::io::prelude::*;
 use curl::easy::Easy;
 use uuid::Uuid;

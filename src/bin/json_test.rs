@@ -53,7 +53,7 @@ fn main() {
     let data: Device = serde_json::from_str(json_str).unwrap();
     println!("{:?}", data);
     let time = std::time::Instant::now();
-    for _ in 0..500000 {
+    for _ in 0..5000 {
         let data: Device = serde_json::from_str(json_str).unwrap();
         let _ = serde_json::to_string(&data).unwrap();
     }
@@ -72,7 +72,8 @@ fn main() {
     let body = core.run(response.into_body().concat2()).unwrap();
     let json_str = format!("{}", String::from_utf8_lossy(&body));
 
+    let time = std::time::Instant::now();
     let data: Value = serde_json::from_str(json_str.as_str()).unwrap();
     println!("{:?}", data);
-	println!("{:?}", std::time::SystemTime::now());
+	println!("{:?}", time.elapsed());
 }
