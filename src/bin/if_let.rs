@@ -23,7 +23,5 @@ fn main() {
         println!("Not matched a number, I don't like letters, let's go with an emoticon :) !");
     }
 
-    number.map(|i| {
-        println!("{:?}", i)
-    });
+    number.map(|i| println!("{:?}", i));
 }

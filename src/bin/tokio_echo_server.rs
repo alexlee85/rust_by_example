@@ -1,20 +1,20 @@
 extern crate bytes;
 extern crate futures;
+extern crate tokio_codec;
 extern crate tokio_io;
 extern crate tokio_proto;
 extern crate tokio_service;
-extern crate tokio_codec;
 
+use bytes::BytesMut;
+use futures::{future, Future};
 use std::io;
 use std::str;
-use bytes::BytesMut;
-use futures::{Future, future};
-use tokio_io::{AsyncRead, AsyncWrite};
-use tokio_io::codec::{Encoder, Decoder};
 use tokio_codec::Framed;
+use tokio_io::codec::{Decoder, Encoder};
+use tokio_io::{AsyncRead, AsyncWrite};
 use tokio_proto::pipeline::ServerProto;
-use tokio_service::Service;
 use tokio_proto::TcpServer;
+use tokio_service::Service;
 
 pub struct LineCodec;
 pub struct LineProto;

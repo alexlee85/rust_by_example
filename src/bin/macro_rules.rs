@@ -1,15 +1,15 @@
 macro_rules! say_hello {
-    () => (
+    () => {
         println!("Hello!");
-    )
+    };
 }
 
 macro_rules! create_function {
-    ($func_name: ident) => (
+    ($func_name: ident) => {
         fn $func_name() {
             println!("You called {}()", stringify!($func_name));
         }
-    )
+    };
 }
 
 create_function!(foo);

@@ -9,7 +9,6 @@ fn skip_prefix<'a, 'b>(line: &'a str, prefix: &'b str) -> &'a str {
     line
 }
 
-
 fn main() {
     let line = "lang:en=Hello World!";
     let lang = "en";

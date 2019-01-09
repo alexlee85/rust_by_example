@@ -2,8 +2,8 @@ extern crate futures;
 extern crate futures_cpupool;
 
 use futures::Future;
-use futures_cpupool::CpuPool;
 use futures_cpupool::CpuFuture;
+use futures_cpupool::CpuPool;
 
 // prime numbers generator http://www.numberempire.com/primenumbers.php
 const BIG_PRIME: u64 = 1112298787;
@@ -24,7 +24,7 @@ fn prime_future(num: u64) -> CpuFuture<bool, ()> {
     let result = pool.spawn_fn(move || {
         let prime = is_prime(num);
         let res: Result<bool, ()> = Ok(prime);
-        
+
         res
     });
 
@@ -32,11 +32,12 @@ fn prime_future(num: u64) -> CpuFuture<bool, ()> {
 }
 
 fn main() {
-
-    let f = prime_future(BIG_PRIME).map(|x| if x {
-        println!("Future Prime")
-    } else {
-        println!("Future Not Prime")
+    let f = prime_future(BIG_PRIME).map(|x| {
+        if x {
+            println!("Future Prime")
+        } else {
+            println!("Future Not Prime")
+        }
     });
 
     // await here, will take double time. cause future wait will block the code.

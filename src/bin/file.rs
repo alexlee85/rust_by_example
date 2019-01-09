@@ -1,5 +1,5 @@
-use std::io::*;
 use std::fs::*;
+use std::io::*;
 
 fn main() {
     let file_path = "/Users/Alex/test.txt";
@@ -9,7 +9,8 @@ fn main() {
             .create(true)
             .open(file_path)
             .expect("open file error: ");
-        file.write_all("hello, world.".as_bytes()).expect("write to file error: ");
+        file.write_all("hello, world.".as_bytes())
+            .expect("write to file error: ");
     }
 
     {
@@ -18,7 +19,8 @@ fn main() {
             .open(file_path)
             .expect("open file error: ");
         let mut content = String::new();
-        file.read_to_string(&mut content).expect("read file error: ");
+        file.read_to_string(&mut content)
+            .expect("read file error: ");
         println!("{}", content);
 
         // println!("{:?}", file.metadata().unwrap());

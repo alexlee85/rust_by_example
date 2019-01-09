@@ -1,16 +1,22 @@
 extern crate curl;
 extern crate uuid;
 
-use std::io::{stdin};
-use std::io::prelude::*;
 use curl::easy::Easy;
+use std::io::prelude::*;
+use std::io::stdin;
 use uuid::Uuid;
 
 fn main() {
     let my_uuid = Uuid::new_v4();
-    let url = format!("http://update.mxj360.com/rest/devices/mtool/config?uuid={}", my_uuid);
+    let url = format!(
+        "http://update.mxj360.com/rest/devices/mtool/config?uuid={}",
+        my_uuid
+    );
 
-    println!("你的帮助代码是: \n{}, \n请复制它，并发送给协助你解决问题的人.\n", my_uuid);
+    println!(
+        "你的帮助代码是: \n{}, \n请复制它，并发送给协助你解决问题的人.\n",
+        my_uuid
+    );
 
     let mut easy = Easy::new();
     easy.url(url.as_str()).unwrap();
