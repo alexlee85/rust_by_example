@@ -2,6 +2,7 @@
 name = "rust_by_example"
 version = "0.1.0"
 authors = [" <li.liang>"]
+edition = "2018"
 
 [lib]
 name = "mylib"
@@ -27,4 +28,5 @@ serde_json = "1.0.33"
 serde_derive = "1.0.83"
 chrono = "0.4.6"
 gstreamer = "0.12.2"
+regex = "1.1.0"
 
