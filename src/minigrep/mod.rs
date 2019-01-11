@@ -18,7 +18,6 @@ impl Config {
 
         Ok(config)
     }
-    
 }
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
@@ -32,7 +31,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 }
 
 fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    let mut results:Vec<&str> = vec![];
+    let mut results: Vec<&str> = vec![];
     for line in contents.lines() {
         if line.contains(query) {
             results.push(line);
