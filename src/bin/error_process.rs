@@ -1,8 +1,8 @@
+use std::error::Error;
 #[allow(unused_imports)]
 use std::fs::{File, OpenOptions};
 #[allow(unused_imports)]
 use std::io::{self, Read, Seek, SeekFrom, Write};
-use std::error::Error;
 
 fn main() {
     // this will cause a panic

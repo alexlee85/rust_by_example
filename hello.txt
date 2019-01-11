@@ -8,6 +8,7 @@ Hello, World~~~!
 Hello, World~~~!
 Hello, World~~~!
 Hello, World~~~!
+rustlang is awesome
 Hello, World~~~!
 Hello, World~~~!
 Hello, World~~~!
