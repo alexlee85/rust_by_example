@@ -23,5 +23,4 @@ fn main() {
     let m = Rc::new(2);
     let n = m.clone();
     assert_eq!(m, n);
-    
 }
