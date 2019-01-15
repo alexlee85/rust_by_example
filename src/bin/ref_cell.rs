@@ -35,6 +35,10 @@ where
     }
 }
 
+fn main() {
+    println!("this prog only have unit test");
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
