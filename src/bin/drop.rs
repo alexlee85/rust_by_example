@@ -14,7 +14,7 @@ fn main() {
     };
     // will early drop a here
     drop(a);
-    let b = MySmartPointer {
+    let _b = MySmartPointer {
         data: String::from("world"),
     };
     println!("MySmartPointers created~~~!");

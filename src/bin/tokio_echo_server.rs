@@ -67,7 +67,7 @@ impl Service for Echo {
     type Response = String;
 
     type Error = io::Error;
-    type Future = Box<Future<Item = Self::Response, Error = Self::Error>>;
+    type Future = Box<dyn Future<Item = Self::Response, Error = Self::Error>>;
 
     fn call(&self, req: Self::Request) -> Self::Future {
         let rev: String = req.chars().rev().collect();

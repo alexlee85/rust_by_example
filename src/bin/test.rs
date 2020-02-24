@@ -33,4 +33,7 @@ fn main() {
     let mut a = Bytes::from(&b"nice job"[..]);
     let b = a.split_to(1);
     println!("{:?}, {:?}", a, b);
+
+    println!("{}", "hello ".to_owned() + "world ~~~~");
+    println!("{}", "hello ".to_owned() + &"world ~~~~".to_owned());
 }
